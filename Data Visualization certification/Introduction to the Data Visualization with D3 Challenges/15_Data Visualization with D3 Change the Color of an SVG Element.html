@@ -1,0 +1,92 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>15. Data Visualization with D3 Change the Color of an SVG Element</h2>
+</br>
+The bars are in the right position, but they are all the same black color. SVG has a way to change the color of the bars.
+</br> 
+In SVG, a <i><strong style="color:blue">rect</strong></i> shape is colored with the <i><strong style="color:blue">fill</strong></i> attribute. It supports hex codes, color names, and rgb values, as well as more complex options like gradients and transparency.
+</br>
+<hr>
+Add an <i><strong style="color:blue">attr()</strong></i> method to set the "fill" of all the bars to the color "navy".
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d)
+       // Add your code below this line
+       .attr("fill", (d) =>
+	   {
+	    if( d > 20)
+		{ 
+		 return "green";
+		}
+		else
+		{
+		 return "red";
+		}
+	   })
+       // Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div>	
+  <script>
+	const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d)
+       // Add your code below this line
+       .attr("fill", (d) =>
+	   {
+	    if( d > 20)
+		{ 
+		 return "green";
+		}
+		else
+		{
+		 return "red";
+		}
+	   })
+       // Add your code above this line
+  </script>
+</div>
+</body>

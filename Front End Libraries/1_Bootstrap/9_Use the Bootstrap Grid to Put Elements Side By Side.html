@@ -1,0 +1,156 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">Bootstrap: Use the Bootstrap Grid to Put Elements Side By Side</h2>
+<div class="challenge-instructions bootstrap"><div><section id="description">
+<p>Bootstrap uses a responsive 12-column grid system, which makes it easy to put elements into rows and specify each element's relative width. Most of Bootstrap's classes can be applied to a <code style="color:blue">div</code> element.</p>
+<p>Bootstrap has different column width attributes that it uses depending on how wide the user's screen is. For example, phones have narrow screens, and laptops have wider screens.</p>
+<p>Take for example Bootstrap's <code style="color:blue">col-md-*</code> class. Here, <code style="color:blue">md</code> means medium, and <code style="color:blue">*</code> is a number specifying how many columns wide the element should be. In this case, the column width of an element on a medium-sized screen, such as a laptop, is being specified.</p>
+<p>In the Cat Photo App that we're building, we'll use <code style="color:blue">col-xs-*</code>, where <code style="color:blue">xs</code> means extra small (like an extra-small mobile phone screen), and <code style="color:blue">*</code> is the number of columns specifying how many columns wide the element should be.</p>
+<p>Put the <code style="color:blue">Like</code>, <code style="color:blue">Info</code> and <code style="color:blue">Delete</code> buttons side-by-side by nesting all three of them within one <code style="color:blue">&lt;div class="row"&gt;</code> element, then each of them within a <code style="color:blue">&lt;div class="col-xs-4"&gt;</code> element.</p>
+<p>The <code style="color:blue">row</code> class is applied to a <code style="color:blue">div</code>, and the buttons themselves can be nested within it.</p></section></div><hr></div>
+<table>
+	<tr>
+		<td style="border: 1px solid orange;">
+			<i><strong style="color:blue"><xmp style="margin-left: -25%;white-space: break-spaces;">
+				<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+				<style>
+				  .red-text {
+					color: red;
+				  }
+
+				  h2 {
+					font-family: Lobster, Monospace;
+				  }
+
+				  p {
+					font-size: 16px;
+					font-family: Monospace;
+				  }
+
+				  .thick-green-border {
+					border-color: green;
+					border-width: 10px;
+					border-style: solid;
+					border-radius: 50%;
+				  }
+
+				  .smaller-image {
+					width: 100px;
+				  }
+				</style>
+
+				<div class="container-fluid">
+				  <h2 class="red-text text-center">CatPhotoApp</h2>
+
+				  <p>Click here for <a href="#">cat photos</a>.</p>
+
+				  <a href="#"><img class="smaller-image thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+
+				  <img src="https://bit.ly/fcc-running-cats" class="img-responsive" alt="Three kittens running towards the camera.">
+				  <div class="row">
+					<div class="col-xs-4">
+				  <button class="btn btn-block btn-primary">Like</button>
+				  </div>
+				  <div class="col-xs-4">
+				  <button class="btn btn-block btn-info">Info</button>
+				  </div>
+				  <div class="col-xs-4">
+				  <button class="btn btn-block btn-danger">Delete</button>
+				  </div>
+				  </div>
+				  <p>Things cats love:</p>
+				  <ul>
+					<li>cat nip</li>
+					<li>laser pointers</li>
+					<li>lasagna</li>
+				  </ul>
+				  <p>Top 3 things cats hate:</p>
+				  <ol>
+					<li>flea treatment</li>
+					<li>thunder</li>
+					<li>other cats</li>
+				  </ol>
+				  <form action="https://freecatphotoapp.com/submit-cat-photo">
+					<label><input type="radio" name="indoor-outdoor"> Indoor</label>
+					<label><input type="radio" name="indoor-outdoor"> Outdoor</label>
+					<label><input type="checkbox" name="personality"> Loving</label>
+					<label><input type="checkbox" name="personality"> Lazy</label>
+					<label><input type="checkbox" name="personality"> Crazy</label>
+					<input type="text" placeholder="cat photo URL" required>
+					<button type="submit">Submit</button>
+				  </form>
+				</div>
+			</div>
+			</xmp></strong></i>		
+		</td>
+		<td style="border: 1px solid orange;">
+			<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+				<style>
+				  .red-text {
+					color: red;
+				  }
+
+				  h2 {
+					font-family: Lobster, Monospace;
+				  }
+
+				  p {
+					font-size: 16px;
+					font-family: Monospace;
+				  }
+
+				  .thick-green-border {
+					border-color: green;
+					border-width: 10px;
+					border-style: solid;
+					border-radius: 50%;
+				  }
+
+				  .smaller-image {
+					width: 100px;
+				  }
+				</style>
+
+				<div class="container-fluid">
+				  <h2 class="red-text text-center">CatPhotoApp</h2>
+
+				  <p>Click here for <a href="#">cat photos</a>.</p>
+
+				  <a href="#"><img class="smaller-image thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+
+				  <img src="https://bit.ly/fcc-running-cats" class="img-responsive" alt="Three kittens running towards the camera.">
+				  <div class="row">
+					<div class="col-xs-4">
+				  <button class="btn btn-block btn-primary">Like</button>
+				  </div>
+				  <div class="col-xs-4">
+				  <button class="btn btn-block btn-info">Info</button>
+				  </div>
+				  <div class="col-xs-4">
+				  <button class="btn btn-block btn-danger">Delete</button>
+				  </div>
+				  </div>
+				  <p>Things cats love:</p>
+				  <ul>
+					<li>cat nip</li>
+					<li>laser pointers</li>
+					<li>lasagna</li>
+				  </ul>
+				  <p>Top 3 things cats hate:</p>
+				  <ol>
+					<li>flea treatment</li>
+					<li>thunder</li>
+					<li>other cats</li>
+				  </ol>
+				  <form action="https://freecatphotoapp.com/submit-cat-photo">
+					<label><input type="radio" name="indoor-outdoor"> Indoor</label>
+					<label><input type="radio" name="indoor-outdoor"> Outdoor</label>
+					<label><input type="checkbox" name="personality"> Loving</label>
+					<label><input type="checkbox" name="personality"> Lazy</label>
+					<label><input type="checkbox" name="personality"> Crazy</label>
+					<input type="text" placeholder="cat photo URL" required>
+					<button type="submit">Submit</button>
+				  </form>
+				</div>
+		</td>
+	</tr>
+</table>

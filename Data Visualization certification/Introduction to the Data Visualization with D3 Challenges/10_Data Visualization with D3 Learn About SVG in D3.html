@@ -1,0 +1,46 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>10. Data Visualization with D3 Learn About SVG in D3</h2>
+SVG stands for Scalable Vector Graphics.
+</br>
+Here "scalable" means that, if you zoom in or out on an object, it would not appear pixelated. It scales with the display system, whether it's on a small mobile screen or a large TV monitor.
+</br>
+SVG is used to make common geometric shapes. Since D3 maps data into a visual representation, it uses SVG to create the shapes for the visualization. SVG shapes for a web page must go within an HTML <i><strong style="color:blue">svg</strong></i> tag.
+</br>
+</br>
+CSS can be scalable when styles use relative units (such as <i><strong style="color:blue">vh</strong></i>, <i><strong style="color:blue">vw</strong></i>, or percentages), but using SVG is more flexible to build data visualizations.
+</br>
+Add an <i><strong style="color:blue">svg</strong></i> node to the <i><strong style="color:blue">body</strong></i> using <i><strong style="color:blue">append()</strong></i>. Give it a <i><strong style="color:blue">width</strong></i> attribute set to the provided <i><strong style="color:blue">w</strong></i> constant and a <i><strong style="color:blue">height</strong></i> attribute set to the provided <i><strong style="color:blue">h</strong></i> constant using the <i><strong style="color:blue">attr()</strong></i> or <i><strong style="color:blue">style()</strong></i> methods for each. You'll see it in the output because there's a <i><strong style="color:blue">background-color</strong></i> of pink applied to it in the <i><strong style="color:blue">style</strong></i> tag.
+</br>
+</br>
+<b>
+Note:
+</b>
+
+</br>
+When using <i><strong style="color:blue">attr()</strong></i> width and height attributes do not have units. This is the building block of scaling - the element will always have a 5:1 width to height ratio, no matter what the zoom level is.
+
+</br>
+</br>
+<div>
+	<style>
+	  svg {
+    background-color: pink;    
+  }
+	</style>
+  <script>
+	const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+  // Add your code below this line        
+        .append("svg")
+        .attr("class","svg")
+        .style("height", h)
+        .style("width", w);
+  // Add your code above this line
+  </script>
+</div>
+</body>

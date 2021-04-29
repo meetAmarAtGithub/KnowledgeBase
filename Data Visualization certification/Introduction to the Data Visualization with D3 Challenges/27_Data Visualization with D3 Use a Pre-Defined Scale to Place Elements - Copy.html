@@ -1,0 +1,147 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>27. Data Visualization with D3 Use a Pre-Defined Scale to Place Elements</h2>
+With the scales set up, it's time to map the scatter plot again. The scales are like processing functions that turn the x and y raw data into values that fit and render correctly on the SVG canvas. They keep the data within the screen's plotting area.
+</br>
+You set the coordinate attribute values for an SVG shape with the scaling function. This includes <i><strong style="color:blue">x</strong></i> and <i><strong style="color:blue">y</strong></i> attributes for <i><strong style="color:blue">rect</strong></i> or <i><strong style="color:blue">text</strong></i> elements, or <i><strong style="color:blue">cx</strong></i> and <i><strong style="color:blue">cy</strong></i> for <i><strong style="color:blue">circles</strong></i>. Here's an example:
+<pre class=" language-js"><code class=" language-js">shape
+  <span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">d</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">xScale</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+
+Scales set shape coordinate attributes to place the data points onto the SVG canvas. You don't need to apply scales when you display the actual data value, for example, in the <i><strong style="color:blue">text()</strong></i> method for a tooltip or label.
+<hr>
+</br>
+Use <i><strong style="color:blue">xScale</strong></i> and <i><strong style="color:blue">yScale</strong></i> to position both the <i><strong style="color:blue">circle</strong></i> and <i><strong style="color:blue">text</strong></i> shapes onto the SVG canvas. For the <i><strong style="color:blue">circles</strong></i>, apply the scales to set the <i><strong style="color:blue">cx</strong></i> and <i><strong style="color:blue">cy</strong></i> attributes. Give them a radius of 5 units, too.
+	
+For the <i><strong style="color:blue">text</strong></i> elements, apply the scales to set the <i><strong style="color:blue">x</strong></i> and <i><strong style="color:blue">y</strong></i> attributes. The labels should be offset to the right of the dots. To do this, add 10 units to the x data value before passing it to the <i><strong style="color:blue">xScale</strong></i>.
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [
+                  [ 34,     78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,   411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,    333 ],
+                  [ 78,    320 ],
+                  [ 21,   123 ]
+                ];
+
+const w = 500;
+const h = 500;
+const padding = 60;
+
+const xScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[0])])
+				 .range([padding, w - padding]);
+
+const yScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[1])])
+				 .range([h - padding, padding]);
+
+const svg = d3.select("body")
+			  .append("svg")
+			  .attr("width", w)
+			  .attr("height", h);
+
+svg.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   // Add your code below this line
+   .attr("cx", (d) => xScale(d[0]))
+   .attr("cy", (d) => yScale(d[1]))
+   .attr("r",5);
+   // Add your code above this line
+
+svg.selectAll("text")
+   .data(dataset)
+   .enter()
+   .append("text")
+   .text((d) =>  (d[0] + ", "  + d[1]))
+   // Add your code below this line
+  .attr("x", (d) => xScale(d[0]+10))
+  .attr("y", (d) => yScale(d[1]));
+   // Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+<script>
+const dataset = [
+                  [ 34,     78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,   411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,    333 ],
+                  [ 78,    320 ],
+                  [ 21,   123 ]
+                ];
+
+const w = 500;
+const h = 500;
+const padding = 60;
+
+const xScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[0])])
+				 .range([padding, w - padding]);
+
+const yScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[1])])
+				 .range([h - padding, padding]);
+
+const svg = d3.select("#div1")
+			  .append("svg")
+			  .attr("width", w)
+			  .attr("height", h);
+
+svg.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   // Add your code below this line
+   .attr("cx", (d) => xScale(d[0]))
+   .attr("cy", (d) => yScale(d[1]))
+   .attr("r",5);
+   // Add your code above this line
+
+svg.selectAll("text")
+   .data(dataset)
+   .enter()
+   .append("text")
+   .text((d) =>  (d[0] + ", "  + d[1]))
+   // Add your code below this line
+  .attr("x", (d) => xScale(d[0]+10))
+  .attr("y", (d) => yScale(d[1]));
+   // Add your code above this line
+  </script>
+</div>
+</body>

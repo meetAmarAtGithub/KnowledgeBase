@@ -1,0 +1,92 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>14. Data Visualization with D3: Invert SVG Elements</h2>
+</br>
+You may have noticed the bar chart looked like it's upside-down, or inverted. This is because of how SVG uses (x, y) coordinates.
+</br> 
+In SVG, the origin point for the coordinates is in the upper-left corner. An <i><strong style="color:blue">x</strong></i> coordinate of 0 places a shape on the left edge of the SVG area. A <i><strong style="color:blue">y</strong></i> coordinate of 0 places a shape on the top edge of the SVG area. Higher <i><strong style="color:blue">x</strong></i> values push the rectangle to the right. Higher <i><strong style="color:blue">y</strong></i> values push the rectangle down.
+</br>
+To make the bars right-side-up, you need to change the way the <i><strong style="color:blue">y</strong></i> coordinate is calculated. It needs to account for both the height of the bar and the total height of the SVG area.
+</br>
+The height of the SVG area is 100. If you have a data point of 0 in the set, you would want the bar to start at the bottom of the SVG area (not the top). To do this, the <i><strong style="color:blue">y</strong></i> coordinate needs a value of 100. If the data point value were 1, you would start with a <i><strong style="color:blue">y</strong></i> coordinate of 100 to set the bar at the bottom. Then you need to account for the height of the bar of 1, so the final <i><strong style="color:blue">y</strong></i> coordinate would be 99.
+</br>
+The <i><strong style="color:blue">y</strong></i> coordinate that is <i><strong style="color:blue">y = heightOfSVG - heightOfBar</strong></i> would place the bars right-side-up.
+</br>
+<hr>
+Change the callback function for the <i><strong style="color:blue">y</strong></i> attribute to set the bars right-side-up. Remember that the <i><strong style="color:blue">height</strong></i> of the bar is 3 times the data value <i><strong style="color:blue">d</strong></i>.
+</br>
+</br>
+<b>
+Note :
+</b>
+</br>
+In general, the relationship is <i><strong style="color:blue">y = h - m * d</strong></i>, where <i><strong style="color:blue">m</strong></i> is the constant that scales the data points.
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => {
+         // Add your code below this line
+
+          return 100 - 3 * d;
+
+         // Add your code above this line
+       })
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d);
+	   // Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div>	
+  <script>
+	const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => {
+         // Add your code below this line
+
+          return 100 - 3 * d;
+
+         // Add your code above this line
+       })
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d);
+  </script>
+</div>
+</body>

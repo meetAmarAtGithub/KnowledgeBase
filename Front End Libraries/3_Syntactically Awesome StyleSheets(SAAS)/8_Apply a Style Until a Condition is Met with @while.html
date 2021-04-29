@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">Sass: Apply a Style Until a Condition is Met with @while</h2>
+<div class="challenge-instructions sass"><div><section id="description">
+<p>The <code style="color:blue">@while</code> directive is an option with similar functionality to the JavaScript <code style="color:blue">while</code> loop. It creates CSS rules until a condition is met.</p>
+<p>The <code style="color:blue">@for</code> challenge gave an example to create a simple grid system. This can also work with <code style="color:blue">@while</code>.</p><p></p><pre class=" language-scss"><code class=" language-scss">$x: 1;
+@while $x &lt; 13 {
+  .col-#{$x} { width: 100%/12 * $x;}
+  $x: $x + 1;
+}
+</code></pre><p></p>
+<p>First, define a variable <code style="color:blue">$x</code> and set it to 1. Next, use the <code style="color:blue">@while</code> directive to create the grid system <i>while</i> <code style="color:blue">$x</code> is less than 13.
+After setting the CSS rule for <code style="color:blue">width</code>, <code style="color:blue">$x</code> is incremented by 1 to avoid an infinite loop.</p>
+</section></div><hr><div><section id="instructions">
+<p>Use <code style="color:blue">@while</code> to create a series of classes with different <code style="color:blue">font-sizes</code>.</p>
+<p>There should be 5 different classes from <code style="color:blue">text-1</code> to <code style="color:blue">text-5</code>. Then set <code style="color:blue">font-size</code> to <code style="color:blue">15px</code> multiplied by the current index number. Make sure to avoid an infinite loop!</p></section></div><hr></div>
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+					<style type='text/scss'>
+					$x: 1;
+					@while $x < 6 {
+					  .text-#{$x} { font-size: 15px * $x;}
+					  $x: $x + 1;
+					}
+					</style>
+
+					<p class="text-1">Hello</p>
+					<p class="text-2">Hello</p>
+					<p class="text-3">Hello</p>
+					<p class="text-4">Hello</p>
+					<p class="text-5">Hello</p>
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+			<style type='text/scss'>
+			$x: 1;
+			@while $x < 6 {
+			  .text-#{$x} { font-size: 15px * $x;}
+			  $x: $x + 1;
+			}
+			</style>
+
+			<p class="text-1">Hello</p>
+			<p class="text-2">Hello</p>
+			<p class="text-3">Hello</p>
+			<p class="text-4">Hello</p>
+			<p class="text-5">Hello</p>
+		</td>
+	</tr>
+</table>

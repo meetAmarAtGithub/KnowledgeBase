@@ -1,0 +1,89 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>24. Data Visualization with D3 Set a Domain and a Range on a Scale</h2>
+By default, scales use the identity relationship - the input value maps to the output value. But scales can be much more flexible and interesting.
+</br>
+Say a data set has values ranging from 50 to 480. This is the input information for a scale, and is also known as the domain.
+</br>
+You want to map those points along the <i><strong style="color:blue">x</strong></i> axis on the SVG canvas, between 10 units and 500 units. This is the output information, which is also known as the range.
+</br>
+The <i><strong style="color:blue">domain()</strong></i> and <i><strong style="color:blue">range()</strong></i> methods set these values for the scale. Both methods take an array of at least two elements as an argument. Here's an example:
+
+	<pre><code><span class="token comment">// Set a domain</span>
+	<span class="token comment">// The domain covers the set of input values</span>
+	scale<span class="token punctuation">.</span><span class="token function">domain</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">480</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">// Set a range</span>
+	<span class="token comment">// The range covers the set of output values</span>
+	scale<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment">// Returns 10</span>
+	<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">480</span><span class="token punctuation">)</span> <span class="token comment">// Returns 500</span>
+	<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">325</span><span class="token punctuation">)</span> <span class="token comment">// Returns 323.37</span>
+	<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">750</span><span class="token punctuation">)</span> <span class="token comment">// Returns 807.67</span>
+	d3<span class="token punctuation">.</span><span class="token function">scaleLinear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	</code></pre>
+Notice that the scale uses the linear relationship between the domain and range values to figure out what the output should be for a given number. The minimum value in the domain (50) maps to the minimum value (10) in the range.
+<hr>
+</br>
+Create a scale and set its domain to <i><strong style="color:blue">[250, 500]</strong></i> and range to <i><strong style="color:blue">[10, 150]</strong></i>.
+</br>
+<b>
+Note
+</b>
+</br>
+You can chain the <i><strong style="color:blue">domain()</strong></i> and <i><strong style="color:blue">range()</strong></i> methods onto the <i><strong style="color:blue">scale</strong></i> variable.
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+ // Add your code below this line
+    const scale = d3.scaleLinear();
+    scale.domain([250, 500]);
+    scale.range([10,150])
+
+
+    // Add your code above this line
+    const output = scale(50);
+    d3.select("body")
+      .append("h2")
+      .text(output);
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+  <script>
+	 // Add your code below this line
+    const scale = d3.scaleLinear();
+    scale.domain([250, 500]);
+    scale.range([10,150])
+
+
+    // Add your code above this line
+    const output = scale(50);
+    d3.select("#div1")
+      .append("h2")
+      .text(output);
+	   
+  </script>
+</div>
+</body>

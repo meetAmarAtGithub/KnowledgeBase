@@ -1,0 +1,45 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>2. Data Visualization with D3: Select a Group of Elements with D3</h2>
+D3 also has the selectAll() method to select a group of elements. It returns an array of HTML nodes for all the items in the document that match the input string. Here's an example to select all the anchor tags in a document:
+
+const anchors = d3.selectAll("a");
+
+Like the select() method, selectAll() supports method chaining, and you can use it with other methods.
+
+Select all of the li tags in the document, and change their text to "list item" by chaining the .text() method.
+
+<i>
+<strong style="color:blue">
+<xmp>
+<body>
+  <ul>
+    <li>Example</li>
+    <li>Example</li>
+    <li>Example</li>
+  </ul>
+  <script>
+    // Add your code below this line
+      
+    // Add your code above this line
+  </script>
+</body>
+</xmp>
+</strong>
+</i>
+
+</br></br>
+
+<body>
+  <ul>
+    <li>Example</li>
+    <li>Example</li>
+    <li>Example</li>
+  </ul>
+  <script>
+    // Add your code below this line
+      d3.selectAll("li")
+        .text("LIST ITEM");
+    // Add your code above this line
+  </script>
+</body>

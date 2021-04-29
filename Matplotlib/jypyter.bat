@@ -1,0 +1,1 @@
+jupyter notebook --notebook-dir="G:\AmarStudyMaterial\FreeCodeCamp\Matplotlib"

@@ -1,0 +1,134 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<h2 style="text-align:center">2. JSON APIs and Ajax: Change Text with click Events</h2>
+When the click event happens, you can use JavaScript to update an HTML element.
+</br>
+For example, when a user clicks the "Get Message" button, it changes the text of the element with the class <i><strong style="color:blue">message</strong></i> to say "Here is the message".
+</br>
+This works by adding the following code within the click event:
+</br>
+<i><strong style="color:blue">document.getElementsByClassName('message')[0].textContent="Here is the message";</strong></i>
+<hr>
+Add code inside the <i><strong style="color:blue">onclick</strong></i> event handler to change the text inside the <i><strong style="color:blue">message</strong></i> element to say "Here is the message".
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+document.getElementById('getMessage').onclick = function(){
+// Add your code below this line
+document.getElementsByClassName('message')[0].textContent='Here is the message';
+// Add your code above this line
+}
+});
+</script>
+
+<style>
+  body {
+    text-align: center;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+  <button id="getMessage">
+    Get Message
+  </button>
+</p>
+
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+document.getElementById('getMessage').onclick = function(){
+// Add your code below this line
+document.getElementsByClassName('message')[0].textContent='Here is the message';
+// Add your code above this line
+}
+});
+</script>
+
+<style>
+  body {
+    text-align: left;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+  <button id="getMessage">
+    Get Message
+  </button>
+</p>
+
+</div>
+</body>

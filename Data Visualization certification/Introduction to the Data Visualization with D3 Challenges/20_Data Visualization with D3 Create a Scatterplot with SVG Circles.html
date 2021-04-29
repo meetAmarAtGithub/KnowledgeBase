@@ -1,0 +1,94 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>20. Data Visualization with D3 Create a Scatterplot with SVG Circles</h2>
+A scatter plot is another type of visualization. It usually uses circles to map data points, which have two values each. These values tie to the <i><strong style="color:blue">x</strong></i> and <i><strong style="color:blue">y</strong></i> axes, and are used to position the circle in the visualization.
+</br>
+SVG has a circle tag to create the <i><strong style="color:blue">circle</strong></i> shape. It works a lot like the <i><strong style="color:blue">rect</strong></i> elements you used for the bar chart.
+</br>
+<hr>
+</br>
+Use the <i><strong style="color:blue">data()</strong></i>, <i><strong style="color:blue">enter()</strong></i>, and <i><strong style="color:blue">append()</strong></i> methods to bind <i><strong style="color:blue">dataset</strong></i> to new <i><strong style="color:blue">circle</strong></i> elements that are appended to the SVG canvas.
+</br>
+</br>
+<b>
+Note :
+</b>
+</br>
+The circles won't be visible because we haven't set their attributes yet. We'll do that in the next challenge.
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+
+
+    const w = 500;
+    const h = 500;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("circle")
+       // Add your code below this line
+        .data(dataset)
+        .enter()
+        .append("circle");
+       // Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+  <script>
+	const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+
+
+    const w = 500;
+    const h = 500;
+
+    const svg = d3.select("#div1")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("circle")
+       // Add your code below this line
+        .data(dataset)
+        .enter()		
+        .append("circle");		
+		// Add your code above this line
+	   
+  </script>
+</div>
+</body>

@@ -1,0 +1,45 @@
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">React: Define an HTML Class in JSX</h2>
+<div><section id="description">
+<p>So far, you’ve seen how JSX differs from HTML in a key way with the use of <code style="color:blue">className</code> vs. <code style="color:blue">class</code> for defining HTML classes.</p>
+<p>Another important way in which JSX differs from HTML is in the idea of the self-closing tag.</p>
+<p>In HTML, almost all tags have both an opening and closing tag: <code style="color:blue">&lt;div&gt;&lt;/div&gt;</code>; the closing tag always has a forward slash before the tag name that you are closing. However, there are special instances in HTML called “self-closing tags”, or tags that don’t require both an opening and closing tag before another tag can start.</p>
+<p>For example the line-break tag can be written as <code style="color:blue">&lt;br&gt;</code> or as <code style="color:blue">&lt;br /&gt;</code>, but should never be written as <code style="color:blue">&lt;br&gt;&lt;/br&gt;</code>, since it doesn't contain any content.</p>
+<p>In JSX, the rules are a little different. Any JSX element can be written with a self-closing tag, and every element must be closed. The line-break tag, for example, must always be written as <code style="color:blue">&lt;br /&gt;</code> in order to be valid JSX that can be transpiled. A <code style="color:blue">&lt;div&gt;</code>, on the other hand, can be written as <code style="color:blue">&lt;div /&gt;</code> or <code style="color:blue">&lt;div&gt;&lt;/div&gt;</code>. The difference is that in the first syntax version there is no way to include anything in the <code style="color:blue">&lt;div /&gt;</code>. You will see in later challenges that this syntax is useful when rendering React components.</p></section></div>
+<hr>
+<div><section id="instructions">
+<p>Fix the errors in the code editor so that it is valid JSX and successfully transpiles. Make sure you don't change any of the content - you only need to close tags where they are needed.</p></section></div>
+<hr>
+    <table style="width: 100%">
+        <tr>
+            <td style="border: 2px solid orange; width: 50%">
+                <i><strong style="color:blue">
+                    <xmp style="margin-left: -20%;white-space: break-spaces;">
+                        const JSX = (
+							  <div>
+								<h2>Welcome to React!</h2> <br />
+								<p>Be sure to close all tags!</p>
+								<hr />
+							  </div>
+							);
+                    </xmp>
+                </strong></i>
+            </td>
+            <td id="challenge-node" style="border: 2px solid orange; width: 50%">
+                <script type="text/babel" lang="JavaScript">                    
+                        const JSX = (
+						  <div>
+							<h2>Welcome to React!</h2> <br />
+							<p>Be sure to close all tags!</p>
+							<hr />
+						</div>
+);
+
+                        ReactDOM.render(JSX,document.getElementById('challenge-node'));
+                </script>	
+		</td>
+	</tr>
+</table>

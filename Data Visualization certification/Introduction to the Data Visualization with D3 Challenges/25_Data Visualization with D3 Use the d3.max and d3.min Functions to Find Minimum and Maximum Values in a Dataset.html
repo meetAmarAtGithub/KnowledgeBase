@@ -1,0 +1,79 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>25. Data Visualization with D3: Use the d3.max and d3.min Functions to Find Minimum and Maximum Values in a Dataset</h2>
+The D3 methods <i><strong style="color:blue">domain()</strong></i> and <i><strong style="color:blue">range()</strong></i> set that information for your scale based on the data. There are a couple methods to make that easier.
+</br>
+Often when you set the domain, you'll want to use the minimum and maximum values within the data set. Trying to find these values manually, especially in a large data set, may cause errors.
+</br>
+D3 has two methods - <i><strong style="color:blue">min()</strong></i> and <i><strong style="color:blue">max()</strong></i> to return this information. Here's an example:
+
+<pre class=" language-js"><code class=" language-js"><span class="token keyword">const</span> exampleData <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">34</span><span class="token punctuation">,</span> <span class="token number">234</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">52</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+d3<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>exampleData<span class="token punctuation">)</span> <span class="token comment">// Returns 6</span>
+d3<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>exampleData<span class="token punctuation">)</span> <span class="token comment">// Returns 234</span>
+</code></pre>
+	
+A dataset may have nested arrays, like the [x, y] coordinate pairs that were in the scatter plot example. In that case, you need to tell D3 how to calculate the maximum and minimum. Fortunately, both the <i><strong style="color:blue">min()</strong></i> and <i><strong style="color:blue">max()</strong></i> methods take a callback function. In this example, the callback function's argument <i><strong style="color:blue">d</strong></i> is for the current inner array. The callback needs to return the element from the inner array (the x or y value) over which you want to compute the maximum or minimum. Here's an example for how to find the min and max values with an array of arrays:
+
+<pre class=" language-js"><code class=" language-js"><span class="token keyword">const</span> locationData <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Returns the smallest number out of the first elements</span>
+<span class="token keyword">const</span> minX <span class="token operator">=</span> d3<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>locationData<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">d</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> d<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// minX compared 1, 6, and 8 and is set to 1</span>
+</code></pre>
+
+<hr>
+The <i><strong style="color:blue">positionData</strong></i> array holds sub arrays of x, y, and z coordinates. Use a D3 method to find the maximum value of the z coordinate (the third value) from the arrays and save it in the <i><strong style="color:blue">output</strong></i> variable.
+</br>
+
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+ const positionData = [[1, 7, -4],[6, 3, 8],[2, 9, 3]]
+    // Add your code below this line
+
+    const output = d3.max(positionData, (d) => d[2]); // Change this line
+
+    // Add your code above this line
+
+    d3.select("body")
+      .append("h2")
+      .text(output)
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+  <script>
+	 const positionData = [[1, 7, -4],[6, 3, 8],[2, 9, 3]]
+    // Add your code below this line
+
+    const output = d3.max(positionData, (d) => d[2]); // Change this line
+
+    // Add your code above this line
+
+    d3.select("#div1")
+      .append("h2")
+      .text("Result is - " + output)
+	   
+  </script>
+</div>
+</body>

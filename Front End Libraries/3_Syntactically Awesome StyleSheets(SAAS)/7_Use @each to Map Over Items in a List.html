@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">Sass: Use @each to Map Over Items in a List</h2>
+<div class="challenge-instructions sass"><div><section id="description">
+<p>The last challenge showed how the <code style="color:blue">@for</code> directive uses a starting and ending value to loop a certain number of times. Sass also offers the <code style="color:blue">@each</code> directive which loops over each item in a list or map.
+On each iteration, the variable gets assigned to the current value from the list or map.</p>
+<p></p><pre class=" language-scss"><code class=" language-scss">@each $color in blue, red, green {
+  .#{$color}-text {color: $color;}
+}
+</code></pre><p></p>
+<p>A map has slightly different syntax. Here's an example:</p>
+<p></p><pre class=" language-scss"><code class=" language-scss">$colors: (color1: blue, color2: red, color3: green);
+
+@each $key, $color in $colors {
+  .#{$color}-text {color: $color;}
+}
+</code></pre><p></p>
+<p>Note that the <code style="color:blue">$key</code> variable is needed to reference the keys in the map. Otherwise, the compiled CSS would have <code style="color:blue">color1</code>, <code style="color:blue">color2</code>... in it.
+Both of the above code examples are converted into the following CSS:</p>
+<p></p><pre class=" language-scss"><code class=" language-scss">.blue-text {
+  color: blue;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+</code></pre><p></p>
+</section></div><hr><div><section id="instructions">
+<p>Write an <code style="color:blue">@each</code> directive that goes through a list: <code style="color:blue">blue, black, red</code> and assigns each variable to a <code style="color:blue">.color-bg</code> class, where the "color" part changes for each item.
+Each class should set the <code style="color:blue">background-color</code> the respective color.</p>
+</section></div><hr></div>
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+					<style type='text/scss'>
+						@each $colour in blue, black,red{
+						   .#{$colour}-bg {background-color: $colour};
+						}
+						
+					  div {
+						height: 200px;
+						width: 200px;
+					  }
+					</style>
+
+					<div  class="blue-bg"></div>
+					<div class="black-bg"></div>
+					<div class="red-bg"></div>
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+			<style type='text/scss'>
+			/*margin: auto will center your div.Div by itself is a blockelement. Therefor you need to define the style to the div how to behave.*/
+				@each $colour in blue, black,red{
+				   .#{$colour}-bg {background-color: $colour; height: 200px; width: 200px; margin: auto};
+				}
+			</style>
+
+			<div class="blue-bg"></div>
+			<div class="black-bg"></div>
+			<div class="red-bg"></div>
+		</td>
+	</tr>
+</table>

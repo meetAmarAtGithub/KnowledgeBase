@@ -1,0 +1,37 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>4. Data Visualization with D3: Work with Data in D3</h2>
+The last two challenges cover the basics of displaying data dynamically with D3 using the data() and enter() methods. These methods take a data set and, together with the append() method, create a new DOM element for each entry in the data set.
+</br>
+In the previous challenge, you created a new h2 element for each item in the dataset array, but they all contained the same text, "New Title". This is because you have not made use of the data that is bound to each of the h2 elements.
+</br>
+The D3 text() method can take a string or a callback function as an argument:
+</br>
+<i>
+<strong style="color:blue">
+<xmp>
+selection.text((d) => d)
+</xmp>
+</strong>
+</i>
+
+</br>
+In the example above, the parameter d refers to a single entry in the dataset that a selection is bound to.
+</br>
+Using the current example as context, the first h2 element is bound to 12, the second h2 element is bound to 31, the third h2 element is bound to 22, and so on.
+</br>
+Change the text() method so that each h2 element displays the corresponding value from the dataset array with a single space and "USD". For example, the first heading should be "12 USD".
+</br>
+<div>
+<script>
+const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];    
+d3.select("div").selectAll("h2")
+  .data(dataset)
+  .enter()
+  .append("h2")
+  // Add your code below this line
+  .text((p)=> p + " USD");
+  // Add your code above this line    
+</script>
+</div>
+</body>

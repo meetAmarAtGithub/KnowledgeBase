@@ -1,0 +1,41 @@
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">React: Render HTML Elements to the DOM</h2>
+<div class="challenge-instructions react"><div><section id="description">
+    <p>So far, you've learned that JSX is a convenient tool to write readable HTML within JavaScript. With React, we can render this JSX directly to the HTML DOM using React's rendering API known as ReactDOM.</p>
+    <p>ReactDOM offers a simple method to render React elements to the DOM which looks like this: <code>ReactDOM.render(componentToRender, targetNode)</code>, where the first argument is the React element or component that you want to render, and the second argument is the DOM node that you want to render the component to.</p>
+    <p>As you would expect, <code>ReactDOM.render()</code> must be called after the JSX element declarations, just like how you must declare variables before using them.</p></section></div><hr><div><section id="instructions">
+    <p>The code editor has a simple JSX component. Use the <code>ReactDOM.render()</code> method to render this component to the page. You can pass defined JSX elements directly in as the first argument and use <code>document.getElementById()</code> to select the DOM node to render them to. There is a <code>div</code> with <code>id='challenge-node'</code> available for you to use. Make sure you don't change the <code>JSX</code> constant.</p></section></div><hr></div>
+    <table style="width: 100%">
+        <tr>
+            <td style="border: 2px solid orange; width: 50%">
+                <i><strong style="color:blue">
+                    <xmp style="margin-left: -20%;white-space: break-spaces;">
+                        const JSX = (
+                            <div>
+                              <h1>Hello World</h1>
+                              <p>Lets render this to the DOM</p>
+                            </div>
+                          );
+                          
+                          ReactDOM.render(JSX,document.getElementById('challenge-node'))
+                    </xmp>
+                </strong></i>
+            </td>
+            <td id="challenge-node" style="border: 2px solid orange; width: 50%">
+                <script type="text/babel" lang="JavaScript">                    
+                        const JSX = (
+                            <div>
+                              <h1>Hello World</h1>
+                              <p>Lets render this to the DOM</p>
+                            </div>
+                          );                          
+                    ReactDOM.render(JSX,document.getElementById('challenge-node'));
+                    
+			</script>	
+		</td>
+	</tr>
+</table>
+                    

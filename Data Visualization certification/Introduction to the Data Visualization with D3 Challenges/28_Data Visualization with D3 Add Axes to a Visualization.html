@@ -1,0 +1,183 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>28. Data Visualization with D3: Add Axes to a Visualization</h2>
+Another way to improve the scatter plot is to add an x-axis and a y-axis.
+</br>
+D3 has two methods <i><strong style="color:blue">axisLeft()</strong></i> and <i><strong style="color:blue">axisBottom()</strong></i> to render the y and x axes, respectively. (Axes is the plural form of axis). Here's an example to create the x-axis based on the <i><strong style="color:blue">xScale</strong></i> in the previous challenges:
+<pre class=" language-js"><p><code>const xAxis = d3.axisBottom(xScale);</code></p></pre>
+The next step is to render the axis on the SVG canvas. To do so, you can use a general SVG component, the <i><strong style="color:blue">g</strong></i> element. The <i><strong style="color:blue">g</strong></i> stands for group.
+</br>
+Unlike <i><strong style="color:blue">rect</strong></i>, <i><strong style="color:blue">circle</strong></i>, and <i><strong style="color:blue">ext</strong></i>, an axis is just a straight line when it's rendered. Because it is a simple shape, using <i><strong style="color:blue">g</strong></i> works.
+</br>
+The last step is to apply a <i><strong style="color:blue">transform</strong></i> attribute to position the axis on the SVG canvas in the right place. Otherwise, the line would render along the border of SVG canvas and wouldn't be visible.
+</br>
+SVG supports different types of <i><strong style="color:blue">transforms</strong></i>, but positioning an axis needs <i><strong style="color:blue">translate</strong></i>. When it's applied to the <i><strong style="color:blue">g</strong></i> element, it moves the whole group over and down by the given amounts. Here's an example:
+
+<pre class=" language-js"><code class=" language-js"><span class="token keyword">const</span> xAxis <span class="token operator">=</span> d3<span class="token punctuation">.</span><span class="token function">axisBottom</span><span class="token punctuation">(</span>xScale<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+svg<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"g"</span><span class="token punctuation">)</span>
+   <span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"transform"</span><span class="token punctuation">,</span> <span class="token string">"translate(0, "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>h <span class="token operator">-</span> padding<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span>
+   <span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>xAxis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+The above code places the x-axis at the bottom of the SVG canvas. Then it's passed as an argument to the <i><strong style="color:blue">call()</strong></i> method. The y-axis works in the same way, except the <i><strong style="color:blue">translate</strong></i> argument is in the form (x, 0). Because <i><strong style="color:blue">translate</strong></i> is a string in the <i><strong style="color:blue">attr()</strong></i> method above, you can use concatenation to include variable values for its arguments.
+<hr>
+</br>
+The scatter plot now has an x-axis. Create a <i><strong style="color:blue">y-axis</strong></i> in a variable named yAxis using the <i><strong style="color:blue">axisLeft()</strong></i> method. Then render the axis using a <i><strong style="color:blue">g</strong></i> element. Make sure to use a <i><strong style="color:blue">transform</strong></i> attribute to translate the axis by the amount of padding units right, and 0 units down. Remember to <i><strong style="color:blue">call()</strong></i> the axis.
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [
+                  [ 34,     78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,   411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,    333 ],
+                  [ 78,    320 ],
+                  [ 21,   123 ]
+                ];
+
+const w = 500;
+const h = 500;
+const padding = 60;
+
+const xScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[0])])
+				 .range([padding, w - padding]);
+
+const yScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[1])])
+				 .range([h - padding, padding]);
+
+const svg = d3.select("body")
+			  .append("svg")
+			  .attr("width", w)
+			  .attr("height", h);
+
+svg.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   .attr("cx", (d) => xScale(d[0]))
+   .attr("cy",(d) => yScale(d[1]))
+   .attr("r", (d) => 5);
+
+svg.selectAll("text")
+   .data(dataset)
+   .enter()
+   .append("text")
+   .text((d) =>  (d[0] + "," + d[1]))
+   .attr("x", (d) => xScale(d[0] + 10))
+   .attr("y", (d) => yScale(d[1]))
+
+const xAxis = d3.axisBottom(xScale);
+// Add your code below this line
+const yAxis = d3.axisLeft(yScale);
+// Add your code above this line
+
+svg.append("g")
+   .attr("transform", "translate(0," + (h - padding) + ")")
+   .call(xAxis);
+
+// Add your code below this line
+
+svg.append("g")
+  .attr("transform", "translate("
+  + padding + ",0)")
+  .call(yAxis);
+// Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+<script>
+const dataset = [
+                  [ 34,     78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,   411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,    333 ],
+                  [ 78,    320 ],
+                  [ 21,   123 ]
+                ];
+
+const w = 500;
+const h = 500;
+const padding = 60;
+
+const xScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[0])])
+				 .range([padding, w - padding]);
+
+const yScale = d3.scaleLinear()
+				 .domain([0, d3.max(dataset, (d) => d[1])])
+				 .range([h - padding, padding]);
+
+const svg = d3.select("#div1")
+			  .append("svg")
+			  .attr("width", w)
+			  .attr("height", h);
+
+svg.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   .attr("cx", (d) => xScale(d[0]))
+   .attr("cy",(d) => yScale(d[1]))
+   .attr("r", (d) => 5);
+
+svg.selectAll("text")
+   .data(dataset)
+   .enter()
+   .append("text")
+   .text((d) =>  (d[0] + "," + d[1]))
+   .attr("x", (d) => xScale(d[0] + 10))
+   .attr("y", (d) => yScale(d[1]))
+
+const xAxis = d3.axisBottom(xScale);
+// Add your code below this line
+const yAxis = d3.axisLeft(yScale);
+// Add your code above this line
+
+svg.append("g")
+   .attr("transform", "translate(0," + (h - padding) + ")")
+   .call(xAxis);
+
+// Add your code below this line
+
+svg.append("g")
+  .attr("transform", "translate("
+  + padding + ",0)")
+  .call(yAxis);
+// Add your code above this line
+  </script>
+</div>
+</body>

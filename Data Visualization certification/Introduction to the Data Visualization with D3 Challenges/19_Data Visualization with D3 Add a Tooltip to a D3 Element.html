@@ -1,0 +1,110 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>19. Data Visualization with D3 Add a Tooltip to a D3 Element</h2>
+A tooltip shows more information about an item on a page when the user hovers over that item. There are several ways to add a tooltip to a visualization, this challenge uses the SVG <i><strong style="color:blue">title</strong></i> element.
+</br>
+<i><strong style="color:blue">title</strong></i> pairs with the <i><strong style="color:blue">text()</strong></i> method to dynamically add data to the bars.
+</br>
+<hr>
+</br>
+Append a <i><strong style="color:blue">title</strong></i> element under each <i><strong style="color:blue">rect </strong></i> node. Then call the <i><strong style="color:blue">text()</strong></i> method with a callback function so the text displays the data value.
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<style>
+  .bar:hover {
+	fill: brown;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 200;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => d * 3)
+       .attr("fill", "navy")	   
+        .attr("class", "bar")
+		// Add your code below this line
+       .append("title")
+       .text((d) => "data point value is - " + d); 
+       // Add your code above this line
+       
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .text((d) => d)
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - (3 * d) - 3)       
+      .attr("fill", "red")
+      .style("font-size","25px");
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">		
+	<style>
+	  .bar:hover {
+		fill: brown;
+	  }
+	</style>
+  <script>
+	const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 200;
+
+    const svg = d3.select("#div1")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => d * 3)
+       .attr("fill", "navy")	   
+        .attr("class", "bar")       
+	   // Add your code below this line
+       .append("title")
+       .text((d) => "data point value is - " + d);
+       // Add your code above this line
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .text((d) => d)
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - (3 * d) - 3)       
+      .style("fill", "red")
+      .style("font-size","25px");
+	   
+  </script>
+</div>
+</body>

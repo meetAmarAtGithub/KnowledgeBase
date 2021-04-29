@@ -1,0 +1,173 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<h2 style="text-align:center">11. JSON APIs and Ajax: Post Data with the JavaScript XMLHttpRequest Method</h2>
+In the previous examples, you received data from an external resource. You can also send data to an external resource, as long as that resource supports AJAX requests and you know the URL.
+</br>
+JavaScript's <i><strong style="color:blue">XMLHttpRequest</strong></i> method is also used to post data to a server. Here's an example:
+<pre class=" language-js"><code class=" language-js"><span class="token keyword">const</span> xhr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'POST'</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">setRequestHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'application/json; charset=UTF-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function-variable function">onreadystatechange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span> <span class="token operator">&amp;&amp;</span> xhr<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> serverResponse <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>textContent <span class="token operator">=</span> serverResponse<span class="token punctuation">.</span>userName <span class="token operator">+</span> serverResponse<span class="token punctuation">.</span>suffix<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> body <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> userName<span class="token operator">:</span> userName<span class="token punctuation">,</span> suffix<span class="token operator">:</span> <span class="token string">' loves cats!'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xhr<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+You've seen several of these methods before. Here the <i><strong style="color:blue">open</strong></i> method initializes the request as a "POST" to the given URL of the external resource, and uses the <i><strong style="color:blue">true</strong></i> Boolean to make it asynchronous. The <i><strong style="color:blue">setRequestHeader</strong></i> method sets the value of an HTTP request header, which contains information about the sender and the request. It must be called after the <i><strong style="color:blue">open</strong></i> method, but before the <i><strong style="color:blue">send</strong></i> method. The two parameters are the name of the header and the value to set as the body of that header. Next, the <i><strong style="color:blue">onreadystatechange</strong></i> event listener handles a change in the state of the request. A <i><strong style="color:blue">readyState</strong></i> of 4 means the operation is complete, and a <i><strong style="color:blue">status</strong></i> of 201 means it was a successful request. The document's HTML can be updated. Finally, the <i><strong style="color:blue">send</strong></i> method sends the request with the <i><strong style="color:blue">body</strong></i> value, which the <i><strong style="color:blue">userName</strong></i> key was given by the user in the <i><strong style="color:blue">input</strong></i> field.
+</br>
+<hr>
+</br>
+Update the code to create and send a "POST" request. Then enter your name in input box and click "Send Message". Your AJAX function will replace "Reply from Server will be here." with the reply of the server. In this case, it is your name appended with " loves cats".
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:100%; word-wrap: break-word">
+<i><strong style="color:blue"><xmp>
+<body>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+		document.getElementById('sendMessage').onclick = function(){
+
+		const userName = document.getElementById('name').value;
+		const url = 'https://jsonplaceholder.typicode.com/posts';
+		// Add your code below this line
+		const xhr = new XMLHttpRequest();
+		xhr.open('POST', url, true);
+		xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+		xhr.onreadystatechange = function(){
+		  if(xhr.readyState === 4 && xhr.status === 201){
+		const serverResponse= JSON.parse(xhr.response);
+		document.getElementsByClassName('message')[0].textContent = serverResponse.userName + serverResponse.suffix;
+		  }
+		};
+		const body= JSON.stringify({ userName: userName, suffix: ' loves cats'});
+		xhr.send(body);
+		// Add your code above this line
+			};
+		  });
+	</script>
+
+	<style>
+	  body {
+		text-align: center;
+		font-family: "Helvetica", sans-serif;
+	  }
+	  h1 {
+		font-size: 2em;
+		font-weight: bold;
+	  }
+	  .box {
+		border-radius: 5px;
+		background-color: #eee;
+		padding: 20px 5px;
+	  }
+	  button {
+		color: white;
+		background-color: #4791d0;
+		border-radius: 5px;
+		border: 1px solid #4791d0;
+		padding: 5px 10px 8px 10px;
+	  }
+	  button:hover {
+		background-color: #0F5897;
+		border: 1px solid #0F5897;
+	  }
+	</style>
+
+	<h1>Cat Friends</h1>
+	<p class="message box">
+	  Reply from Server will be here
+	</p>
+	<p>
+	  <label for="name">Your name:
+		<input type="text" id="name"/>
+	  </label>
+	  <button id="sendMessage">
+		Send Message
+	  </button>
+	</p>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+<script>
+		document.addEventListener('DOMContentLoaded', function(){
+		document.getElementById('sendMessage').onclick = function(){
+
+		const userName = document.getElementById('name').value;
+		const url = 'https://jsonplaceholder.typicode.com/posts';
+		// Add your code below this line
+		const xhr = new XMLHttpRequest();
+		xhr.open('POST', url, true);
+		xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+		xhr.onreadystatechange = function(){
+		  if(xhr.readyState === 4 && xhr.status === 201){
+		const serverResponse= JSON.parse(xhr.response);
+		document.getElementsByClassName('message')[0].textContent = serverResponse.userName + serverResponse.suffix;
+		  }
+		};
+		const body= JSON.stringify({ userName: userName, suffix: ' loves cats'});
+		xhr.send(body);
+		// Add your code above this line
+			};
+		  });
+	</script>
+
+	<style>
+	  #div1 {
+		text-align: center;
+		font-family: "Helvetica", sans-serif;
+	  }
+	  h1 {
+		font-size: 2em;
+		font-weight: bold;
+	  }
+	  .box {
+		border-radius: 5px;
+		background-color: #eee;
+		padding: 20px 5px;
+	  }
+	  button {
+		color: white;
+		background-color: #4791d0;
+		border-radius: 5px;
+		border: 1px solid #4791d0;
+		padding: 5px 10px 8px 10px;
+	  }
+	  button:hover {
+		background-color: #0F5897;
+		border: 1px solid #0F5897;
+	  }
+	</style>
+
+	<h1>Cat Friends</h1>
+	<p class="message box">
+	  Reply from Server will be here
+	</p>
+	<p>
+	  <label for="name">Your name:
+		<input type="text" id="name"/>
+	  </label>
+	  <button id="sendMessage">
+		Send Message
+	  </button>
+	</p>
+</body>

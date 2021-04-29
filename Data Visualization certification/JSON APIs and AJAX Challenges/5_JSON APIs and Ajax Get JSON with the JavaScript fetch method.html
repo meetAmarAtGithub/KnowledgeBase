@@ -1,0 +1,155 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<h2 style="text-align:center">4. JSON APIs and Ajax: Get JSON with the JavaScript fetch method</h2>
+Another way to request external data is to use the JavaScript <i><strong style="color:blue">fetch()</strong></i> method. It is equivalent to XMLHttpRequest, but the syntax is considered easier to understand.
+</br>
+Here is the code for making a GET request to <i><strong style="color:blue">/json/cats.json</strong></i>
+
+<pre class=" language-js"><code class=" language-js"><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/json/cats.json'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+Take a look at each piece of this code.
+</br>
+The first line is the one that makes the request. So, <i><strong style="color:blue">fetch(URL)</strong></i> makes a GET request to the URL specified. The method returns a Promise.
+</br>
+After a Promise is returned, if the request was successful, the <i><strong style="color:blue">then</strong></i> method is executed, which takes the response and converts it to JSON format.
+</br>
+The <i><strong style="color:blue">then</strong></i> method also returns a Promise, which is handled by the next <i><strong style="color:blue">then</strong></i> method. The argument in the second <i><strong style="color:blue">then</strong></i> is the JSON object you are looking for!
+</br>
+Now, it selects the element that will receive the data by using <i><strong style="color:blue">document.getElementById()</strong></i>. Then it modifi
+es the HTML code of the element by inserting a string created from the JSON object returned from the request.
+</br>
+<hr>
+Update the code to create and send a "GET" request to the freeCodeCamp Cat Photo API. But this time, using the <i><strong style="color:blue">fetch</strong></i> method instead of <i><strong style="color:blue">XMLHttpRequest</strong></i>.
+
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+	document.getElementById('getMessage').onclick = function(){
+		// Add your code below this line
+		fetch('/json/cats.json')
+		.then(response => response.json())
+		.then(data=> { document.getElementById('message').innerHTML = JSON.stringify(data);
+		})
+		// Add your code above this line
+	};
+});
+</script>
+
+<style>
+  body {
+    text-align: center;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+  <button id="getMessage">
+    Get Message
+  </button>
+</p>
+
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1" style="text-align:center">
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+	document.getElementById('getMessage').onclick = function(){
+		// Add your code below this line
+		//https://www.freecodecamp.org/json/cats.json
+		fetch('https://jsonplaceholder.typicode.com/todos/1')
+		.then(response => response.json())
+		.then(data=> { document.getElementsByClassName('message')[0].innerHTML = JSON.stringify(data);
+		})
+		// Add your code above this line
+	};
+});
+</script>
+
+<style>
+  body {
+    text-align: left;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+<button id="getMessage">
+Get Message
+</button>
+</p>
+</div>
+</body>

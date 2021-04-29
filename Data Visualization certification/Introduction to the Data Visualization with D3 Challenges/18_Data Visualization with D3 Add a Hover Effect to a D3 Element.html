@@ -1,0 +1,105 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>18. Data Visualization with D3: Add a Hover Effect to a D3 Element</h2>
+It's possible to add effects that highlight a bar when the user hovers over it with the mouse. So far, the styling for the rectangles is applied with the built-in D3 and SVG methods, but you can use CSS as well.
+</br>
+You set the CSS class on the SVG elements with the <i><strong style="color:blue">attr()</strong></i> method. Then the <i><strong style="color:blue">:hover</strong></i> pseudo-class for your new class holds the style rules for any hover effects.
+</br>
+<hr>
+</br>
+Use the <i><strong style="color:blue">attr()</strong></i> method to add a class of <i><strong style="color:blue">bar</strong></i> to all the <i><strong style="color:blue">rect</strong></i> elements. This changes the <i><strong style="color:blue">fill</strong></i> color of the bar to brown when you mouse over it.
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<style>
+  .bar:hover {
+	fill: brown;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 200;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => d * 3)
+       .attr("fill", "navy")
+	   // Add your code below this line
+        .attr("class", "bar");
+       // Add your code above this line
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .text((d) => d)
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - (3 * d) - 3)       
+      .style("fill", "red")
+      .style("font-size","25px");
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">		
+	<style>
+	  .bar:hover {
+		fill: brown;
+	  }
+	</style>
+  <script>
+	const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 200;
+
+    const svg = d3.select("#div1")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => d * 3)
+       .attr("fill", "navy")
+	   // Add your code below this line
+        .attr("class", "bar");
+       // Add your code above this line
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .text((d) => d)
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - (3 * d) - 3)       
+      .style("fill", "red")
+      .style("font-size","25px");
+	   
+  </script>
+</div>
+</body>

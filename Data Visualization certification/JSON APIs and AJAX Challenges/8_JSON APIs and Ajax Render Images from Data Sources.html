@@ -1,0 +1,156 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<h2 style="text-align:center">8. JSON APIs and Ajax Render Images from Data Sources</h2>
+The last few challenges showed that each object in the JSON array contains an <i><strong style="color:blue">imageLink</strong></i> key with a value that is the URL of a cat's image.
+</br>
+When you're looping through these objects, you can use this <i><strong style="color:blue">imageLink</strong></i> property to display this image in an <i><strong style="color:blue">img</strong></i> element.
+</br>
+Here's the code that does this:
+<p><code>html += "&lt;img src = '" + val.imageLink + "' " + "alt='" + val.altText + "'&gt;";</code></p>
+<hr>
+Add code to use the <i><strong style="color:blue">imageLink</strong></i> and <i><strong style="color:blue">altText</strong></i> properties in an <i><strong style="color:blue">img</strong></i> tag.
+</br>
+<hr>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('getMessage').onclick = function(){
+      const req=new XMLHttpRequest();
+      req.open("GET",'https://www.freecodecamp.org/json/cats.json',true);
+      req.send();
+      req.onload = function(){
+        const json = JSON.parse(req.responseText);
+        let html = "";
+        json.forEach(function(val) {
+          html += "<div class = 'cat'>";
+          // Add your code below this line
+          html += "<img src = '" + val.imageLink + "' " + "alt= '" + val.altText + "'>";
+          // Add your code above this line
+          html += "</div><br>";
+        });
+        document.getElementsByClassName('message')[0].innerHTML=html;
+      };
+     };
+  });
+</script>
+
+<style>
+  body {
+    text-align: center;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+  <button id="getMessage">
+    Get Message
+  </button>
+</p>
+
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1" style="text-align:center">
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('getMessage').onclick = function(){
+      const req=new XMLHttpRequest();
+      req.open("GET",'https://www.freecodecamp.org/json/cats.json',true);
+      req.send();
+      req.onload = function(){
+        const json = JSON.parse(req.responseText);
+        let html = "";
+        json.forEach(function(val) {
+          html += "<div class = 'cat'>";
+          // Add your code below this line
+          html += "<img src = '" + val.imageLink + "' " + "alt= '" + val.altText + "'>";
+          // Add your code above this line
+          html += "</div><br>";
+        });
+        document.getElementsByClassName('message')[0].innerHTML=html;
+      };
+     };
+  });
+</script>
+
+<style>
+  body {
+    text-align: left;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+  <button id="getMessage">
+    Get Message
+  </button>
+</p>
+</div>
+</body>

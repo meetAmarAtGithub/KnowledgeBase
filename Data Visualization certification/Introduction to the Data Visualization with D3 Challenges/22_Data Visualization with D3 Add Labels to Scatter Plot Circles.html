@@ -1,0 +1,111 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>22. Data Visualization with D3 Add Labels to Scatter Plot Circles</h2>
+You can add text to create labels for the points in a scatter plot.
+</br>
+The goal is to display the comma-separated values for the first (<i><strong style="color:blue">x</strong></i>) and second (<i><strong style="color:blue">y</strong></i>) fields of each item in <i><strong style="color:blue">dataset</strong></i>.
+</br>
+The <i><strong style="color:blue">text</strong></i> nodes need <i><strong style="color:blue">x</strong></i> and <i><strong style="color:blue">y</strong></i> attributes to position it on the SVG canvas. In this challenge, the <i><strong style="color:blue">y</strong></i> value (which determines height) can use the same value that the <i><strong style="color:blue">circle</strong></i> uses for its <i><strong style="color:blue">cy</strong></i> attribute. The <i><strong style="color:blue">x</strong></i> value can be slightly larger than the <i><strong style="color:blue">cx</strong></i> value of the <i><strong style="color:blue">circle</strong></i>, so the label is visible. This will push the label to the right of the plotted point.
+</br>
+<hr>
+</br>
+Label each point on the scatter plot using the <i><strong style="color:blue">text</strong></i> elements. The text of the label should be the two values separated by a comma and a space. For example, the label for the first point is "34, 78". Set the <i><strong style="color:blue">x</strong></i> attribute so it's 5 units more than the value you used for the <i><strong style="color:blue">cx</strong></i> attribute on the <i><strong style="color:blue">circle</strong></i>. Set the <i><strong style="color:blue">y</strong></i> attribute the same way that's used for the <i><strong style="color:blue">cy</strong></i> value on the <i><strong style="color:blue">circle</strong></i>.
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+
+
+    const w = 500;
+    const h = 500;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       .attr("cx", (d, i) => d[0])
+       .attr("cy", (d, i) => h - d[1])
+       .attr("r", 5);
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       // Add your code below this line
+      .attr("x", (d,i) => d[0] + 5)
+      .attr("y", (d,i) => h - d[1])      
+      .text((d) => (d[0] + ", " + d[1]))
+       // Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+  <script>
+	const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+
+
+    const w = 500;
+    const h = 500;
+
+    const svg = d3.select("#div1")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       .attr("cx", (d, i) => d[0])
+       .attr("cy", (d, i) => h - d[1])
+       .attr("r", 5);
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       // Add your code below this line
+      .attr("x", (d,i) => d[0] + 5)
+      .attr("y", (d,i) => h - d[1])      
+      .text((d) => (d[0] + ", " + d[1]))
+       // Add your code above this line
+	   
+  </script>
+</div>
+</body>

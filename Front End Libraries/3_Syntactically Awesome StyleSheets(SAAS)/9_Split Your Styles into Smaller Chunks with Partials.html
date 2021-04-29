@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">Sass: Split Your Styles into Smaller Chunks with Partials</h2>
+<div class="challenge-instructions sass"><div><section id="description">
+<p><dfn>Partials</dfn> in Sass are separate files that hold segments of CSS code. These are imported and used in other Sass files. This is a great way to group similar code into a module to keep it organized.</p>
+<p>Names for partials start with the underscore (<code style="color:blue">_</code>) character, which tells Sass it is a small segment of CSS and not to convert it into a CSS file. Also, Sass files end with the <code style="color:blue">.scss</code> file extension. To bring the code in the partial into another Sass file, use the <code style="color:blue">@import</code> directive.</p>
+<p>For example, if all your mixins are saved in a partial named "_mixins.scss", and they are needed in the "main.scss" file, this is how to use them in the main file:</p><p></p><pre class="  language-scss"><code class="  language-scss">// In the main.scss file
+
+@import 'mixins'
+</code></pre><p></p>
+<p>Note that the underscore and file extension are not needed in the <code style="color:blue">import</code> statement - Sass understands it is a partial. Once a partial is imported into a file, all variables, mixins, and other code are available to use.</p>
+</section></div><hr><div><section id="instructions">
+<p>Write an <code style="color:blue">@import</code> statement to import a partial named <code style="color:blue">_variables.scss</code> into the main.scss file.</p></section></div><hr></div>
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+					// The main.scss file
+					@import 'variables'
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+			
+		</td>
+	</tr>
+</table>

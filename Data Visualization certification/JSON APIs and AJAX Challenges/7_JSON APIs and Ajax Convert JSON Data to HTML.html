@@ -1,0 +1,188 @@
+<body>
+<style>
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+    color: #708090;
+}
+.token.punctuation {
+    color: #999;
+}
+.token.class-name, .token.function {
+    color: #dd4a68;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #905;
+}
+</style>
+<h2 style="text-align:center">7. JSON APIs and Ajax: Convert JSON Data to HTML</h2>
+Now that you're getting data from a JSON API, you can display it in the HTML.
+</br>
+You can use a <i><strong style="color:blue">forEach</strong></i> method to loop through the data since the cat photo objects are held in an array. As you get to each item, you can modify the HTML elements.
+</br>
+First, declare an html variable with <i><strong style="color:blue">let html = "";</strong></i>.
+</br>
+Then, loop through the JSON, adding HTML to the variable that wraps the key names in <i><strong style="color:blue">strong</strong></i> tags, followed by the value. When the loop is finished, you render it.
+</br>
+Here's the code that does this:
+
+<pre class=" language-js"><code class=" language-js"><span class="token keyword">let</span> html <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+json<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> keys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  html <span class="token operator">+=</span> <span class="token string">"&lt;div class = 'cat'&gt;"</span><span class="token punctuation">;</span>
+  keys<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    html <span class="token operator">+=</span> <span class="token string">"&lt;strong&gt;"</span> <span class="token operator">+</span> key <span class="token operator">+</span> <span class="token string">"&lt;/strong&gt;: "</span> <span class="token operator">+</span> val<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"&lt;br&gt;"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  html <span class="token operator">+=</span> <span class="token string">"&lt;/div&gt;&lt;br&gt;"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+<b>Note</b>: For this challenge, you need to add new HTML elements to the page, so you cannot rely on <i><strong style="color:blue">textContent</strong></i>. Instead, you need to use <i><strong style="color:blue">innerHTML</strong></i>, which can make a site vulnerable to Cross-site scripting attacks.
+</br>
+Add a <i><strong style="color:blue">forEach</strong></i> method to loop over the JSON data and create the HTML elements to display it.
+</br>
+Here is some example JSON
+<pre class=" language-json"><code class=" language-json">[
+  {
+    "id":0,
+      "imageLink":"https://s3.amazonaws.com/freecodecamp/funny-cat.jpg",
+      "altText":"A white cat wearing a green helmet shaped melon on its head. ",
+      "codeNames":[ "Juggernaut", "Mrs. Wallace", "Buttercup"
+    ]
+  }
+]
+</code></pre>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('getMessage').onclick = function(){
+      const req = new XMLHttpRequest();
+      req.open("GET",'/json/cats.json',true);
+      req.send();
+      req.onload = function(){
+        const json = JSON.parse(req.responseText);
+        let html = "";
+        // Add your code below this line
+		json.forEach(function(rr){
+		const keyvalues = Object.keys(rr);
+		html += "<div class='cat'>";
+		keyvalues.forEach(function(Eachkey){
+		  html += "<strong>" + Eachkey + "</strong>: " + rr[Eachkey] + "<br>";
+		  });
+		  html += "</div><br>"
+		});
+        // Add your code above this line
+        document.getElementsByClassName('message')[0].innerHTML = html;
+      };
+    };
+  });
+</script>
+
+<style>
+  body {
+    text-align: center;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+  <button id="getMessage">
+    Get Message
+  </button>
+</p>
+
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1" style="text-align:center">
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('getMessage').onclick = function(){
+      const req = new XMLHttpRequest();
+      req.open("GET",'https://www.freecodecamp.org/json/cats.json',true);
+      req.send();
+      req.onload = function(){
+        const json = JSON.parse(req.responseText);
+        let html = "";
+        // Add your code below this line
+		json.forEach(function(rr){
+		const keyvalues = Object.keys(rr);
+		html += "<div class='cat'>";
+		keyvalues.forEach(function(Eachkey){
+		  html += "<strong>" + Eachkey + "</strong>: " + rr[Eachkey] + "<br>";
+		  });
+		  html += "</div><br>"
+		});
+        // Add your code above this line
+        document.getElementsByClassName('message')[0].innerHTML = html;
+      };
+    };
+  });
+</script>
+
+<style>
+  body {
+    text-align: left;
+    font-family: "Helvetica", sans-serif;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .box {
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 20px 5px;
+  }
+  button {
+    color: white;
+    background-color: #4791d0;
+    border-radius: 5px;
+    border: 1px solid #4791d0;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    background-color: #0F5897;
+    border: 1px solid #0F5897;
+  }
+</style>
+
+<h1>Cat Photo Finder</h1>
+<p class="message box">
+  The message will go here
+</p>
+<p>
+  <button id="getMessage">
+    Get Message
+  </button>
+</p>
+</div>
+</body>

@@ -1,0 +1,97 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>21. Data Visualization with D3 Add Attributes to the Circle Elements</h2>
+The last challenge created the <i><strong style="color:blue">circle</strong></i> elements for each point in the <i><strong style="color:blue">dataset</strong></i>, and appended them to the SVG canvas. But D3 needs more information about the position and size of each <i><strong style="color:blue">circle</strong></i> to display them correctly.
+</br>
+A <i><strong style="color:blue">circle</strong></i> in SVG has three main attributes. The <i><strong style="color:blue">cx</strong></i> and <i><strong style="color:blue">cy</strong></i> attributes are the coordinates. They tell D3 where to position the center of the shape on the SVG canvas. The radius (<i><strong style="color:blue">r</strong></i> attribute) gives the size of the <i><strong style="color:blue">circle</strong></i>.
+</br>
+Just like the <i><strong style="color:blue">rect</strong></i> <i><strong style="color:blue">y</strong></i> coordinate, the <i><strong style="color:blue">cy</strong></i> attribute for a <i><strong style="color:blue">circle</strong></i> is measured from the top of the SVG canvas, not from the bottom.
+</br>
+All three attributes can use a callback function to set their values dynamically. Remember that all methods chained after <i><strong style="color:blue">data(dataset)</strong></i> run once per item in <i><strong style="color:blue">dataset</strong></i>. The <i><strong style="color:blue">d</strong></i> parameter in the callback function refers to the current item in <i><strong style="color:blue">dataset</strong></i>, which is an array for each point. You use bracket notation, like <i><strong style="color:blue">d[0]</strong></i>, to access the values in that array.
+</br>
+<hr>
+</br>
+Add <i><strong style="color:blue">cx</strong></i>, <i><strong style="color:blue">cy</strong></i>, and <i><strong style="color:blue">r</strong></i> attributes to the <i><strong style="color:blue">circle</strong></i> elements. The <i><strong style="color:blue">cx</strong></i> value should be the first number in the array for each item in <i><strong style="color:blue">dataset</strong></i>. The <i><strong style="color:blue">cy</strong></i> value should be based off the second number in the array, but make sure to show the chart right-side-up and not inverted. The <i><strong style="color:blue">r</strong></i> value should be 5 for all circles.
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+
+
+    const w = 500;
+    const h = 500;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       // Add your code below this line
+      .attr("cx", (d) => d[0])
+      .attr("cy", (d) => h - d[1])
+      .attr("r", 5);
+       // Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+  <script>
+	const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+
+
+    const w = 500;
+    const h = 500;
+
+    const svg = d3.select("#div1")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       // Add your code below this line
+      .attr("cx", (d) => d[0])
+      .attr("cy", (d) => h - d[1])
+      .attr("r", 5);
+       // Add your code above this line
+	   
+  </script>
+</div>
+</body>

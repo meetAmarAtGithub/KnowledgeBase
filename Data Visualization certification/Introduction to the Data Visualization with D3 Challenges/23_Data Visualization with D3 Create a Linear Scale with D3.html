@@ -1,0 +1,63 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>23. Data Visualization with D3 Create a Linear Scale with D3</h2>
+The bar and scatter plot charts both plotted data directly onto the SVG canvas. However, if the height of a bar or one of the data points were larger than the SVG height or width values, it would go outside the SVG area.
+</br>
+In D3, there are scales to help plot data. <i><strong style="color:blue">Scales</strong></i> are functions that tell the program how to map a set of raw data points onto the pixels of the SVG canvas.
+</br>
+For example, say you have a 100x500-sized SVG canvas and you want to plot Gross Domestic Product (GDP) for a number of countries. The set of numbers would be in the billion or trillion-dollar range. You provide D3 a type of scale to tell it how to place the large GDP values into that 100x500-sized area.
+</br>
+It's unlikely you would plot raw data as-is. Before plotting it, you set the scale for your entire data set, so that the <i><strong style="color:blue">x</strong></i> and <i><strong style="color:blue">y</strong></i> values fit your canvas width and height.
+</br>
+D3 has several scale types. For a linear scale (usually used with quantitative data), there is the D3 method
+</br>
+<i><strong style="color:blue">scaleLinear():</strong></i>
+</br>
+<i><strong style="color:blue">const scale = d3.scaleLinear()</strong></i>
+</br>
+By default, a scale uses the identity relationship. The value of the input is the same as the value of the output. A separate challenge covers how to change this.
+</br>
+<hr>
+</br>
+Change the <i><strong style="color:blue">scale</strong></i> variable to create a linear scale. Then set the <i><strong style="color:blue">output</strong></i> variable to the scale called with an input argument of 50.
+</br>
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+// Add your code below this line
+
+    const scale = d3.scaleLinear(); // Create the scale here
+    const output = scale(50); // Call the scale with an argument here
+    
+    // Add your code above this line
+
+    d3.select("body")
+      .append("h2")
+      .text(output);
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">
+  <script>
+	// Add your code below this line
+
+    const scale = d3.scaleLinear(); // Create the scale here
+    const output = scale(50); // Call the scale with an argument here
+    
+    // Add your code above this line
+
+    d3.select("body")
+      .append("h2")
+      .text(output);
+	   
+  </script>
+</div>
+</body>

@@ -1,0 +1,161 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<h2 class="text-center challenge-title">Bootstrap: Style Text Inputs as Form Controls</h2>
+<div class="challenge-instructions bootstrap"><div><section id="description">
+<p>You can add the <code style="color:blue">fa-paper-plane</code> Font Awesome icon by adding <code style="color:blue">&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;</code> within your submit <code style="color:blue">button</code> element.</p>
+<p>Give your form's text input field a class of <code style="color:blue">form-control</code>. Give your form's submit button the classes <code style="color:blue">btn btn-primary</code>. Also give this button the Font Awesome icon of <code style="color:blue">fa-paper-plane</code>.</p>
+<p>All textual <code style="color:blue">&lt;input&gt;</code>, <code style="color:blue">&lt;textarea&gt;</code>, and <code style="color:blue">&lt;select&gt;</code> elements with the class <code style="color:blue">.form-control</code> have a width of 100%.</p></section></div><hr></div>
+<table>
+	<tr>
+		<td style="border: 1px solid orange;">
+			<i><strong style="color:blue"><xmp style="margin-left: -25%;white-space: break-spaces;">
+					<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+					<style>
+					  h2 {
+						font-family: Lobster, Monospace;
+					  }
+
+					  .thick-green-border {
+						border-color: green;
+						border-width: 10px;
+						border-style: solid;
+						border-radius: 50%;
+					  }
+
+					</style>
+
+					<div class="container-fluid">
+					  <div class="row">
+						<div class="col-xs-8">
+						  <h2 class="text-primary text-center">CatPhotoApp</h2>
+						</div>
+						<div class="col-xs-4">
+						  <a href="#"><img class="img-responsive thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+						</div>
+					  </div>
+					  <img src="https://bit.ly/fcc-running-cats" class="img-responsive" alt="Three kittens running towards the camera.">
+					  <div class="row">
+						<div class="col-xs-4">
+						  <button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up"></i> Like</button>
+						</div>
+						<div class="col-xs-4">
+						  <button class="btn btn-block btn-info"><i class="fa fa-info-circle"></i> Info</button>
+						</div>
+						<div class="col-xs-4">
+						  <button class="btn btn-block btn-danger"><i class="fa fa-trash"></i> Delete</button>
+						</div>
+					  </div>
+					  <p>Things cats <span class="text-danger">love:</span></p>
+					  <ul>
+						<li>cat nip</li>
+						<li>laser pointers</li>
+						<li>lasagna</li>
+					  </ul>
+					  <p>Top 3 things cats hate:</p>
+					  <ol>
+						<li>flea treatment</li>
+						<li>thunder</li>
+						<li>other cats</li>
+					  </ol>
+					  <form action="https://freecatphotoapp.com/submit-cat-photo">
+						<div class="row">
+						  <div class="col-xs-6">
+							<label><input type="radio" name="indoor-outdoor"> Indoor</label>
+						  </div>
+						  <div class="col-xs-6">
+							<label><input type="radio" name="indoor-outdoor"> Outdoor</label>
+						  </div>
+						</div>
+						<div class="row">
+						  <div class="col-xs-4">
+							<label><input type="checkbox" name="personality"> Loving</label>
+						  </div>
+						  <div class="col-xs-4">
+							<label><input type="checkbox" name="personality"> Lazy</label>
+						  </div>
+						  <div class="col-xs-4">
+							<label><input type="checkbox" name="personality"> Crazy</label>
+						  </div>
+						</div>
+						<input type="text" class="form-control" placeholder="cat photo URL" required>
+						<button class="btn btn-primary" type="submit"><i class="fa  fa-paper-plane"></i> Submit</button>
+					  </form>
+					</div>
+				</xmp></strong></i>
+			</td>
+		<td style="border: 1px solid orange;">
+				<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+				<style>
+				  h2 {
+					font-family: Lobster, Monospace;
+				  }
+
+				  .thick-green-border {
+					border-color: green;
+					border-width: 10px;
+					border-style: solid;
+					border-radius: 50%;
+				  }
+
+				</style>
+
+				<div class="container-fluid">
+				  <div class="row">
+					<div class="col-xs-8">
+					  <h2 class="text-primary text-center">CatPhotoApp</h2>
+					</div>
+					<div class="col-xs-4">
+					  <a href="#"><img class="img-responsive thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+					</div>
+				  </div>
+				  <img src="https://bit.ly/fcc-running-cats" class="img-responsive" alt="Three kittens running towards the camera.">
+				  <div class="row">
+					<div class="col-xs-4">
+					  <button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up"></i> Like</button>
+					</div>
+					<div class="col-xs-4">
+					  <button class="btn btn-block btn-info"><i class="fa fa-info-circle"></i> Info</button>
+					</div>
+					<div class="col-xs-4">
+					  <button class="btn btn-block btn-danger"><i class="fa fa-trash"></i> Delete</button>
+					</div>
+				  </div>
+				  <p>Things cats <span class="text-danger">love:</span></p>
+				  <ul>
+					<li>cat nip</li>
+					<li>laser pointers</li>
+					<li>lasagna</li>
+				  </ul>
+				  <p>Top 3 things cats hate:</p>
+				  <ol>
+					<li>flea treatment</li>
+					<li>thunder</li>
+					<li>other cats</li>
+				  </ol>
+				  <form action="https://freecatphotoapp.com/submit-cat-photo">
+					<div class="row">
+					  <div class="col-xs-6">
+						<label><input type="radio" name="indoor-outdoor"> Indoor</label>
+					  </div>
+					  <div class="col-xs-6">
+						<label><input type="radio" name="indoor-outdoor"> Outdoor</label>
+					  </div>
+					</div>
+					<div class="row">
+					  <div class="col-xs-4">
+						<label><input type="checkbox" name="personality"> Loving</label>
+					  </div>
+					  <div class="col-xs-4">
+						<label><input type="checkbox" name="personality"> Lazy</label>
+					  </div>
+					  <div class="col-xs-4">
+						<label><input type="checkbox" name="personality"> Crazy</label>
+					  </div>
+					</div>
+					<input type="text" class="form-control" placeholder="cat photo URL" required>
+					<button class="btn btn-primary" type="submit"><i class="fa  fa-paper-plane"></i> Submit</button>
+				  </form>
+				</div>
+		</td>
+	</tr>
+</table>

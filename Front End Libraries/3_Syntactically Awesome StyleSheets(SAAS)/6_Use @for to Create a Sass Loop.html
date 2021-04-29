@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">Sass: Use @for to Create a Sass Loop</h2>
+<div class="challenge-instructions sass"><div><section id="description">
+<p>The <code style="color:blue">@for</code> directive adds styles in a loop, very similar to a <code style="color:blue">for</code> loop in JavaScript.</p><p><code style="color:blue">@for</code> is used in two ways: "start through end" or "start to end". The main difference is that the "start <b>to</b> end" <em>excludes</em> the end number as part of the count, and "start <b>through</b> end" <em>includes</em> the end number as part of the count.</p>
+<p>Here's a start <b>through</b> end example:</p><p></p><pre class=" language-scss"><code class=" language-scss">@for $i from 1 through 12 {
+  .col-#{$i} { width: 100%/12 * $i; }
+}
+</code></pre><p></p>
+<p>The <code style="color:blue">#{$i}</code> part is the syntax to combine a variable (<code style="color:blue">i</code>) with text to make a string. When the Sass file is converted to CSS, it looks like this:</p>
+<p></p><pre class=" language-scss"><code class=" language-scss">.col-1 {
+  width: 8.33333%;
+}
+
+.col-2 {
+  width: 16.66667%;
+}
+
+...
+
+.col-12 {
+  width: 100%;
+}
+</code></pre><p></p>
+<p>This is a powerful way to create a grid layout. Now you have twelve options for column widths available as CSS classes.</p>
+</section></div><hr><div><section id="instructions">
+<p>Write a <code style="color:blue">@for</code> directive that takes a variable <code style="color:blue">$j</code> that goes from 1 <b>to</b> 6.</p>
+<p>It should create 5 classes called <code style="color:blue">.text-1</code> to <code style="color:blue">.text-5</code> where each has a <code style="color:blue">font-size</code> set to 15px multiplied by the index.</p></section></div><hr></div>
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+					<style type='text/scss'>
+						@for $j from 1 to 6{
+						  .text-#{$j} { font-size: 15px * $j;}
+						}
+					</style>
+
+					<p class="text-1">Hello</p>
+					<p class="text-2">Hello</p>
+					<p class="text-3">Hello</p>
+					<p class="text-4">Hello</p>
+					<p class="text-5">Hello</p>
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+			<style type='text/scss'>
+				@for $j from 1 to 6{
+				  .text-#{$j} { font-size: 15px * $j;}
+				}
+			</style>
+
+			<p class="text-1">Hello</p>
+			<p class="text-2">Hello</p>
+			<p class="text-3">Hello</p>
+			<p class="text-4">Hello</p>
+			<p class="text-5">Hello</p>
+		</td>
+	</tr>
+</table>

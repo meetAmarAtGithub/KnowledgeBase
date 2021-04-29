@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">Sass: Nest CSS with Sass</h2>
+<div class="challenge-instructions sass"><div><section id="description">
+<p>Sass allows nesting of CSS rules, which is a useful way of organizing a style sheet.</p>
+<p>Normally, each element is targeted on a different line to style it, like so:</p><p></p><pre class="  language-scss"><code class="  language-scss">nav {
+  background-color: red;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+}
+</code></pre><p></p>
+<p>For a large project, the CSS file will have many lines and rules. This is where nesting can help organize your code by placing child style rules within the respective parent elements:</p>
+<p></p><pre class="  language-scss"><code class="  language-scss">nav {
+  background-color: red;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
+</code></pre><p></p>
+</section></div><hr><div><section id="instructions">
+<p>Use the nesting technique shown above to re-organize the CSS rules for both children of <code style="color:blue">.blog-post</code> element. For testing purposes, the <code style="color:blue">h1</code> should come before the <code style="color:blue">p</code> element.</p></section></div><hr></div>
+
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+					<style type='text/scss'>
+					  .blog-post {
+						  h1 {
+						  text-align: center;
+						  color: blue;
+						}
+						p {
+						  font-size: 20px;
+						}
+					  }
+					  
+					</style>
+
+					<div class="blog-post">
+					  <h1>Blog Title</h1>
+					  <p>This is a paragraph</p>
+					</div>
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+			<style type='text/scss'>
+			  .blog-post {
+				  h1 {
+				  text-align: center;
+				  color: blue;
+				}
+				p {
+				  font-size: 20px;
+				}
+			  }
+			  
+			</style>
+
+			<div class="blog-post">
+			  <h1>Blog Title</h1>
+			  <p>This is a paragraph</p>
+			</div>
+		</td>
+	</tr>
+</table>

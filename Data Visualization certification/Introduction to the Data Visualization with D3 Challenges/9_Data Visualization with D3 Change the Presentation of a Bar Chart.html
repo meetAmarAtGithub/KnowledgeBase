@@ -1,0 +1,45 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>10. Data Visualization with D3: Learn About SVG in D3</h2>
+The last challenge created a bar chart, but there are a couple of formatting changes that could improve it:
+</br>
+1) Add space between each bar to visually separate them, which is done by adding a margin to the CSS for the bar class.
+</br>
+2) Increase the height of the bars to better show the difference in values, which is done by multiplying the value by a number to scale the height.
+</br>
+</br>
+First, add a <i><strong style="color:blue">margin</strong></i> of 2px to the<i><strong style="color:blue">bar</strong></i>class in the <i><strong style="color:blue">style</strong></i> tag. Next, change the callback function in the <i><strong style="color:blue">style()</strong></i> method so it returns a value 10 times the original data value (plus the "px").
+</br>
+</br>
+<b>
+Note:
+</b>
+</br>
+Multiplying each data point by the same constant only alters the scale. It's like zooming in, and it doesn't change the meaning of the underlying data.
+
+</br>
+</br>
+<div>
+	<style>
+	  .bar {
+		width: 25px;
+		height: 100px;
+		/* Only change code below this line */
+		margin: 2px;    
+		/* Only change code above this line */
+		display: inline-block;
+		background-color: blue;
+	  }
+	</style>
+  <script>
+	const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    d3.select("body").selectAll("div")
+      .data(dataset)
+      .enter()
+      .append("div")
+      .attr("class", "bar")
+      .style("height", (d) => (d * 10 + "px"))
+  </script>
+</div>
+</body>

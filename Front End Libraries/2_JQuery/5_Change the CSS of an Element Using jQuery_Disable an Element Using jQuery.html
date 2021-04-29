@@ -1,0 +1,96 @@
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<h2 class="text-center challenge-title">jQuery: Change the CSS of an Element Using jQuery</h2>
+
+<div class="challenge-instructions jquery"><div><section id="description">
+<p>We can also change the CSS of an HTML element directly with jQuery.</p>
+<p>jQuery has a function called <code style="color:blue">.css()</code> that allows you to change the CSS of an element.</p>
+<p>Here's how we would change its color to blue:</p><p><code style="color:blue">$("#target1").css("color", "blue");</code></p>
+<p>This is slightly different from a normal CSS declaration, because the CSS property and its value are in quotes, and separated with a comma instead of a colon.</p>
+<p>Delete your jQuery selectors, leaving an empty <code style="color:blue">document ready function</code>.</p>
+<p>Select <code style="color:blue">target1</code> and change its color to red.</p></section></div><hr></div>
+
+<h2 class="text-center challenge-title">jQuery: Disable an Element Using jQuery</h2>
+
+<div class="challenge-instructions jquery"><div><section id="description">
+<p>You can also change the non-CSS properties of HTML elements with jQuery. For example, you can disable buttons.</p>
+<p>When you disable a button, it will become grayed-out and can no longer be clicked.</p>
+<p>jQuery has a function called <code style="color:blue">.prop()</code> that allows you to adjust the properties of elements.</p>
+<p>Here's how you would disable all buttons:</p><p><code style="color:blue">$("button").prop("disabled", true);</code></p>
+<p>Disable only the <code style="color:blue">target1</code> button.</p></section></div><hr></div>
+
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+					<script>
+					  $(document).ready(function() {
+						$("#target1").css("color", "red");
+						$("#target1").prop("disabled", true);
+					  });
+					</script>
+
+					<!-- Only change code above this line. -->
+
+					<div class="container-fluid">
+					  <h3 class="text-primary text-center">jQuery Playground</h3>
+					  <div class="row">
+						<div class="col-xs-6">
+						  <h4>#left-well</h4>
+						  <div class="well" id="left-well">
+							<button class="btn btn-default target" id="target1">#target1</button>
+							<button class="btn btn-default target" id="target2">#target2</button>
+							<button class="btn btn-default target" id="target3">#target3</button>
+						  </div>
+						</div>
+						<div class="col-xs-6">
+						  <h4>#right-well</h4>
+						  <div class="well" id="right-well">
+							<button class="btn btn-default target" id="target4">#target4</button>
+							<button class="btn btn-default target" id="target5">#target5</button>
+							<button class="btn btn-default target" id="target6">#target6</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+			<script>
+			  $(document).ready(function() {
+				$("#target1").css("color", "red");
+				$("#target1").prop("disabled", true);
+			  });
+			</script>
+
+			<!-- Only change code above this line. -->
+
+			<div class="container-fluid">
+			  <h3 class="text-primary text-center">jQuery Playground</h3>
+			  <div class="row">
+				<div class="col-xs-6">
+				  <h4>#left-well</h4>
+				  <div class="well" id="left-well">
+					<button class="btn btn-default target" id="target1">#target1</button>
+					<button class="btn btn-default target" id="target2">#target2</button>
+					<button class="btn btn-default target" id="target3">#target3</button>
+				  </div>
+				</div>
+				<div class="col-xs-6">
+				  <h4>#right-well</h4>
+				  <div class="well" id="right-well">
+					<button class="btn btn-default target" id="target4">#target4</button>
+					<button class="btn btn-default target" id="target5">#target5</button>
+					<button class="btn btn-default target" id="target6">#target6</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</td>
+	</tr>
+</table>

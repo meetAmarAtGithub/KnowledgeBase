@@ -1,0 +1,28 @@
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">React: Create a Simple JSX Element</h2>
+<div class="challenge-instructions react"><div><section id="description">
+<p><strong>Intro:</strong> React is an Open Source view library created and maintained by Facebook. It's a great tool to render the User Interface (UI) of modern web applications.</p>
+<p>React uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript. This has several benefits. It lets you use the full programmatic power of JavaScript within HTML, and helps to keep your code readable. For the most part, JSX is similar to the HTML that you have already learned, however there are a few key differences that will be covered throughout these challenges.</p>
+<p>For instance, because JSX is a syntactic extension of JavaScript, you can actually write JavaScript directly within JSX. To do this, you simply include the code you want to be treated as JavaScript within curly braces: <code style="color:blue">{ 'this is treated as JavaScript code' }</code>. Keep this in mind, since it's used in several future challenges.</p>
+<p>However, because JSX is not valid JavaScript, JSX code must be compiled into JavaScript. The transpiler Babel is a popular tool for this process. For your convenience, it's already added behind the scenes for these challenges. If you happen to write syntactically invalid JSX, you will see the first test in these challenges fail.</p>
+<p>It's worth noting that under the hood the challenges are calling <code style="color:blue">ReactDOM.render(JSX, document.getElementById('root'))</code>. This function call is what places your JSX into React's own lightweight representation of the DOM. React then uses snapshots of its own DOM to optimize updating only specific parts of the actual DOM.</p></section></div><hr><div><section id="instructions">
+<p><strong>Instructions:</strong> The current code uses JSX to assign a <code style="color:blue">div</code> element to the constant <code style="color:blue">JSX</code>. Replace the <code style="color:blue">div</code> with an <code style="color:blue">h1</code> element and add the text <code style="color:blue">Hello JSX!</code> inside it.</p></section></div><hr></div>
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+				
+					const JSX = <h1>Hello JSX!</h1>
+					
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+		
+			<h1>Hello JSX!</h1>
+			
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,94 @@
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<h2>16. Data Visualization with D3 Add Labels to D3 Elements</h2>
+D3 lets you label a graph element, such as a bar, using the SVG <i><strong style="color:blue">text</strong></i>  element.
+</br> 
+Like the <i><strong style="color:blue">rect</strong></i> element, a <i><strong style="color:blue">text</strong></i> element needs to have <i><strong style="color:blue">x</strong></i> and <i><strong style="color:blue">y</strong></i> attributes, to place it on the SVG canvas. It also needs to access the data to display those values.
+</br>
+D3 gives you a high level of control over how you label your bars.
+</br>
+<hr>
+The code in the editor already binds the data to each new <i><strong style="color:blue">text</strong></i> element. First, append <i><strong style="color:blue">text</strong></i> nodes to the <i><strong style="color:blue">svg</strong></i>. Next, add attributes for the <i><strong style="color:blue">x</strong></i> and <i><strong style="color:blue">y</strong></i> coordinates. They should be calculated the same way as the <i><strong style="color:blue">rect</strong></i> ones, except the <i><strong style="color:blue">y</strong></i> value for the <i><strong style="color:blue">text</strong></i> should make the label sit 3 units higher than the bar. Finally, use the D3 <i><strong style="color:blue">text()</strong></i> method to set the label equal to the data point value.
+</br>
+<b>
+Note:
+</b>
+</br>
+For the label to sit higher than the bar, decide if the <i><strong style="color:blue">y</strong></i></strong></i> value for the <i><strong style="color:blue">text</strong></i> should be 3 greater or 3 less than the <i><strong style="color:blue">y</strong></i> value for the bar.
+</br>
+<!-- This code below display actual code that we are executing this file>-->
+<div style="background-color:orange;  width:60%">
+<i><strong style="color:blue"><xmp>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" type="text/javascript"></script>
+<script>
+const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 200;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d)
+       .attr("fill", "navy");
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       // Add your code below this line
+		.append("text")
+		.attr("x", (d, i) => (i * 30 ) + 3 )
+		.attr("y", (d, i) => (h - 3 * d) - 3)
+		.text((d) => d)
+       // Add your code above this line
+</script>
+</body>
+</xmp></strong></i>
+</br>
+</div>	   
+
+</br>
+<div id="div1">	
+  <script>
+	const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 200;
+
+    const svg = d3.select("#div1")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d)
+       .attr("fill", "navy");
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       // Add your code below this line
+		.append("text")
+		.attr("x", (d, i) => (i * 30 ) + 3 )
+		.attr("y", (d, i) => (h - 3 * d) - 3)
+		.text((d) => d)
+       // Add your code above this line
+  </script>
+</div>
+</body>

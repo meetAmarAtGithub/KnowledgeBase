@@ -1,0 +1,40 @@
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">React: Define an HTML Class in JSX</h2>
+<div class="challenge-instructions react"><div><section id="description">
+    <p>Now that you're getting comfortable writing JSX, you may be wondering how it differs from HTML.</p>
+    <p>So far, it may seem that HTML and JSX are exactly the same.</p>
+    <p>One key difference in JSX is that you can no longer use the word <code style="color:blue">class</code> to define HTML classes. This is because <code style="color:blue">class</code> is a reserved word in JavaScript. Instead, JSX uses <code style="color:blue">className</code>.</p>
+    <p>In fact, the naming convention for all HTML attributes and event references in JSX become camelCase. For example, a click event in JSX is <code style="color:blue">onClick</code>, instead of <code style="color:blue">onclick</code>. Likewise, <code style="color:blue">onchange</code> becomes <code style="color:blue">onChange</code>. While this is a subtle difference, it is an important one to keep in mind moving forward.</p></section></div><hr><div><section id="instructions">
+    <p>Apply a class of <code style="color:blue">myDiv</code> to the <code style="color:blue">div</code> provided in the JSX code.</p></section></div><hr></div>
+    <table style="width: 100%">
+        <tr>
+            <td style="border: 2px solid orange; width: 50%">
+                <i><strong style="color:blue">
+                    <xmp style="margin-left: -20%;white-space: break-spaces;">
+                        const JSX = (
+                        <div>
+							<h2>Welcome to React!</h2> <br />
+							<p>Be sure to close all tags!</p>
+							<hr />
+						  </div>
+                        );
+                    </xmp>
+                </strong></i>
+            </td>
+            <td id="challenge-node" style="border: 2px solid orange; width: 50%">
+                <script type="text/babel" lang="JavaScript">                    
+                        const JSX = (
+                         <div>
+							<h2>Welcome to React!</h2> <br />
+							<p>Be sure to close all tags!</p>
+							<hr />
+						  </div>
+                        );
+                        ReactDOM.render(JSX,document.getElementById('challenge-node'));
+                </script>	
+		</td>
+	</tr>
+</table>

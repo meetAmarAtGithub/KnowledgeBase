@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<h2 class="text-center challenge-title">Sass: Use @if and @else to Add Logic To Your Styles</h2>
+<div class="challenge-instructions sass"><div><section id="description">
+<p>The <code style="color:blue">@if</code> directive in Sass is useful to test for a specific case - it works just like the <code style="color:blue">if</code> statement in JavaScript.</p><p></p><pre class="  language-scss"><code class="  language-scss">@mixin make-bold($bool) {
+  @if $bool == true {
+    font-weight: bold;
+  }
+}
+</code></pre><p></p>
+<p>And just like in JavaScript, <code style="color:blue">@else if</code> and <code style="color:blue">@else</code> test for more conditions:</p>
+<p></p><pre class="  language-scss"><code class="  language-scss">@mixin text-effect($val) {
+  @if $val == danger {
+    color: red;
+  }
+  @else if $val == alert {
+    color: yellow;
+  }
+  @else if $val == success {
+    color: green;
+  }
+  @else {
+    color: black;
+  }
+}
+</code></pre><p></p>
+</section></div><hr><div><section id="instructions">
+<p>Create a mixin called <code style="color:blue">border-stroke</code> that takes a parameter <code style="color:blue">$val</code>. The mixin should check for the following conditions using <code style="color:blue">@if</code>, <code style="color:blue">@else if</code>, and <code style="color:blue">@else</code>:</p><p></p><pre class="  language-scss"><code class="  language-scss">light - 1px solid black
+medium - 3px solid black
+heavy - 6px solid black
+</code></pre><p></p>
+<p>If <code style="color:blue">$val</code> is not <code style="color:blue">light</code>, <code style="color:blue">medium</code>, or <code style="color:blue">heavy</code>, the border should be set to <code style="color:blue">none</code>.</p>
+</section></div><hr></div>
+<table style="width: 100%">
+	<tr>
+		<td style="border: 2px solid orange; width: 50%">
+			<i><strong style="color:blue">
+				<xmp style="margin-left: -40%;white-space: break-spaces;">
+					<style type='text/scss'>
+					@mixin border-stroke($val){
+					  @if $val == light {
+						border: 1px solid black;
+					  }
+					  @else if $val == medium{
+						border: 3px solid black;
+					  }
+					  @else if $val == heavy{
+						border: 6px solid black;
+					  }
+					  @else {
+						border: none;
+					  }
+					}
+
+					  #box {
+						width: 150px;
+						height: 150px;
+						background-color: red;
+						@include border-stroke(medium);
+					  }
+					</style>
+
+					<div id="box"></div>
+				</xmp>
+			</strong></i>
+		</td>
+		<td style="border: 2px solid orange; width: 50%">
+			<style type='text/scss'>
+				@mixin border-stroke($val){
+				  @if $val == light {
+					border: 1px solid black;
+				  }
+				  @else if $val == medium{
+					border: 3px solid black;
+				  }
+				  @else if $val == heavy{
+					border: 6px solid black;
+				  }
+				  @else {
+					border: none;
+				  }
+				}
+
+				  #box {
+					width: 150px;
+					height: 150px;
+					background-color: red;
+					margin: auto;/*This will center your div.Div by itself is a blockelement. Therefor you need to define the style to the div how to behave.*/
+					@include border-stroke(medium);
+				  }
+				</style>
+
+				<div id="box"></div>
+		</td>
+	</tr>
+</table>
